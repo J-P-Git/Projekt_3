@@ -3,38 +3,60 @@
 ==================================================  
 
 Script je určen k získání a uložení výsledků parlamentních voleb v ČR v roce 2017.  
-Na adrese https://www.volby.cz/pls/ps2017nss/ps3?xjazyk=CZ  
-získá data o výsledcích pro jednotlivé obce a uloží je do souboru.  
-Výstupním souborem je přehledná tabulka s výsledky ve formátu CSV.  
+Na adrese https://www.volby.cz/pls/ps2017nss/ps3?xjazyk=CZ získá data o výsledcích  
+pro jednotlivé obce a uloží je do přehledné tabulky.  
+Výstupním souborem je tabulka ve formátu CSV.  
 
 __Program vyžaduje nainstalovaný interpret Python 3.__  
-K ověření verze zadejte v terminálu : python --version
+K ověření dostupné verze python zadejte v terminálu:
+```bash
+python --version
+```
 
-Pro správnou funkci scriptu vytvořte vlastní virtuální prostředí.  
-Spusťte ve složce se scriptem terminál a zapište příkaz : python -m venv myenv
+
+## Návod ke spuštění  
+
+Pro správnou funkci vytvořte pro script vlastní virtuální prostředí a nainstalujte potřebné knihovny.  
+
+Pro vytvoření vlastního virtuálního prostředí spusťte ve složce se scriptem terminál a zapište příkaz : 
+```bash
+python -m venv myenv
+```
  
-Aktivujte virt. prostředí pomocí příkazu. 
-* Pro cmd : myenv\Scripts\activate
-* Pro PowerShell : .\myenv\Scripts\Activate.ps1
-* Pro MacOS/linux : source myenv/bin/activate
+Následně aktivujte vlastní virt. prostředí pomocí příkazu.
+```bash
+myenv\Scripts\activate             # pro CMD
+.\myenv\Scripts\Activate.ps1       # pro PowerShell
+: source myenv/bin/activate        # pro MacOS/Linux
+```
 
-Po úspěšné aktivaci virtuálního prostředí se v terminálu zobrazí (myenv) ..cesta k souboru.
+Po úspěšné aktivaci virtuálního prostředí se v terminálu zobrazí `(myenv) cesta k souboru.`  
 
-Nainstalujte pro správný běh potřebné moduly pomocí requirements.txt    
-V terminálu zadejte příkaz: pip install -r requirements.txt
+### Instalace knihoven  
 
-Po instalaci modulů můžete script spustit zadáním příkazu: python main.py  
+Nainstalujte pro správný běh potřebné moduly s pomocí requirements.txt    
+V terminálu zadejte příkaz: 
+```bash
+pip install -r requirements.txt
+```
 
-Pro úspěšné stažení a uložení dat je v terminálu nutné zadat  
-dva požadované argumenty ve správném formátu.  
+Po instalaci modulů můžete script spustit s nápovědou zadáním příkazu: `python main.py` 
+
+Pro úspěšné stažení a uložení dat s výsledky je v terminálu nutné  
+zadat dva požadované argumenty ve správném formátu.
+```bash
 python main.py "url_uzemniho_celku" "Vysledny_soubor.csv"
+```
 
 př. pro výsledky celku Praha zadejte:  
+```bash
 python main.py "https://www.volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=1&xnumnuts=1100" "vysledky_Praha.csv" 
+```
+Script data z url stáhne a uloží do souboru CSV ve složce kde je script umístěn.  
 
-V úvodu je možné využít funkce arghelp.  
+V rámci scriptu je možné využít funkce arghelp.  
 Nápověda arghelp zobrazí argumenty pro všechny dostupné url.
 
-Script data z url stáhne a uloží do souboru CSV ve složce kde je script umístěn.  
+  
 
 
